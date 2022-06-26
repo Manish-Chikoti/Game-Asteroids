@@ -1,23 +1,11 @@
 LFLAGS = -lglut -lGLU -lGL
 
-####################################################################
-# Build the main game
-####################################################################
+
+# to build the main game
+
 a.out: driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o
 	g++ driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o $(LFLAGS)
-
-###############################################################
-# Individual files
-#    uiDraw.o       Draw polygons on the screen and do all OpenGL graphics
-#    uiInteract.o   Handles input events
-#    point.o        The position on the screen
-#    game.o         Handles the game interaction
-#    velocity.o     Velocity (speed and direction)
-#    flyingObject.o Base class for all flying objects
-#    ship.o         The player's ship
-#    bullet.o       The bullets fired from the ship
-#    rocks.o        Contains all of the Rock classes
-###############################################################
+	
 uiDraw.o: uiDraw.cpp uiDraw.h
 	g++ -c uiDraw.cpp
 
@@ -49,8 +37,5 @@ rocks.o: rocks.cpp rocks.h flyingObject.h point.h velocity.h uiDraw.h
 	g++ -c rocks.cpp
 
 
-###############################################################
-# General rules
-###############################################################
 clean:
 	rm a.out *.o
