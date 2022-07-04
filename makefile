@@ -1,7 +1,7 @@
 LFLAGS = -lglut -lGLU -lGL
 
 
-# to build the main game
+# building the main game
 
 a.out: driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o
 	g++ driver.o game.o uiInteract.o uiDraw.o point.o velocity.o flyingObject.o ship.o bullet.o rocks.o $(LFLAGS)
